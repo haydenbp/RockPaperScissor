@@ -1,28 +1,30 @@
 function computerSelection(){
 
-let computerRoll = Math.floor(Math.random() * 3) + 1;
+let computerChoice = Math.floor(Math.random() * 3) + 1;
 
     
 
-    switch (computerRoll) {
+    switch (computerChoice) {
         case 1:
-            computerRoll = "Rock"
+            computerChoice = "Rock"
         break;
 
         case 2:
-            computerRoll = "Paper"
+            computerChoice = "Paper"
 
         break;
         
         case 3:
-            computerRoll = "Scissor"
+            computerChoice = "Scissor"
 
         break;
 
     }
     
-    return computerRoll;
+    return computerChoice;
 }
+// Randomly generates a rock paper or scissor choice for the computer
+
 
 function playerSelection(){
 
@@ -30,16 +32,16 @@ function playerSelection(){
 
     let validAnswerString = ["rock","paper","scissor"];
 
-   
 
     if(validAnswerString.includes(playerChoice.toLowerCase())){
 
         console.log(`Player Chose ${playerChoice}`);
 
+        return playerChoice;
+
 
     }
        
-        
 
     else{
 
@@ -48,15 +50,41 @@ function playerSelection(){
         playerSelection();
     }
 
+}
+// allows the user to input their choice for the round. verifies that input is a valid choice.
+
+
+function gamePlay(computerInput,playerInput){
+
+    if(playerInput == "Rock" && computerInput == "Scissor"){
+        return console.log("You win, rock beats scissor");
+    }
+
+    if(playerInput == "Rock" && computerInput == "Paper"){
+        return console.log("You lose, paper beats rock");
+
+    if(playerInput == "Paper" && computerInput == "Rock"){
+        return console.log("You win, paper beats rock");
+    }
+
+    if(playerInput == "Paper" && computerInput == "Scissor"){
+        return console.log("You lose, scissor beats paper");
+    }
+
+    if(playerInput == "Scissor" && computerInput == "Paper"){
+        return console.log("You win, scissor beats paper");
+    }
+
+    if(playerInput == "Scissor" && computerInput == "Rock"){
+        return console.log("You lose, rock beats scissor");
+    }
+
+
+    if(playerInput == computerInput){
+        return console.log("Tie game");
+    }
     
 
-
-
-
-
-
-
-    
 
 }
 
