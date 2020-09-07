@@ -143,7 +143,7 @@ function game(){
 
     }
 
-    if(computerWins > playerWins){
+    if(computerWins < playerWins){
         console.log(`You won!`);
 
     }
