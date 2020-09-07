@@ -106,21 +106,17 @@ function gamePlay(computerInput,playerInput){
 function game(){
 
     let numOfRounds = window.prompt("Enter the Number of rounds you would like to play");
-    
 
     if (parseInt(numOfRounds) <= 0 || isNaN(numOfRounds) == true){
 
         console.log(`${numOfRounds} rounds is not a valid answer. Please enter a number greater than 0`);
-
         game();
-
     }
 
     let computerWins = 0;
     let playerWins = 0;
     let currentRound = 0;
 
-    
     while(currentRound < numOfRounds) {
     
         let whoWon = gamePlay(computerSelection(),playerSelection());
@@ -128,24 +124,32 @@ function game(){
         if( whoWon == 1){
             console.log(`Player has won round ${currentRound+1}`)
             playerWins++;
-            
-            
         }
 
         if(whoWon == -1){
             console.log(`Computer has won round ${currentRound+1}`)
-            computerWins++;
-            
+            computerWins++;   
         }
 
         else{
-            console.log(`Round ${currentRound+1} is a Tie`);
-            
+            console.log(`Round ${currentRound+1} is a Tie`);   
         }
 
         currentRound++;
+    }
 
-        
+    if(computerWins > playerWins){
+        console.log(`The Computer is the winner`);
+
+    }
+
+    if(computerWins > playerWins){
+        console.log(`You won!`);
+
+    }
+
+    if(computerWins == playerWins){
+        console.log(`Tie Game`);
 
     }
 
