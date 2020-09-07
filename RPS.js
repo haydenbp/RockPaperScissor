@@ -1,25 +1,34 @@
-let computerPlay = Math.floor(Math.random() * 3) + 1;
+function computerPlay(){
 
-console.log(computerPlay);
+let computerRoll = Math.floor(Math.random() * 3) + 1;
 
-switch (computerPlay) {
-    case 1:
-        computerPlay = "Rock"
-    break;
-
-    case 2:
-        computerPlay = "Paper"
-
-    break;
     
-    case 3:
-        computerPlay = "Scissor"
 
-    break;
+    switch (computerRoll) {
+        case 1:
+            computerRoll = "Rock"
+        break;
+
+        case 2:
+            computerRoll = "Paper"
+
+        break;
+        
+        case 3:
+            computerRoll = "Scissor"
+
+        break;
+
+    }
+    
+    return computerRoll;
 }
 
-console.log(computerPlay);
 
 let playerChoice = window.prompt("Rock, Paper, or Scissor?");
 
-console.log(`Player chose ${playerChoice}`);
+console.log(`Player Chose ${playerChoice}`);
+
+console.log(`Computer Chooses ${computerPlay()}`);
+
+
