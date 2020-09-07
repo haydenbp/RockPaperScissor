@@ -94,47 +94,58 @@ function gamePlay(computerInput,playerInput){
 
 
     else if(playerInput == computerInput){
-        console.log("Tie game");
-        return 0;
+        console.log("Tie Round");
+        
     }
     
 }
 
 //this function plays a round of rock paper scissor and displays the result in the console
 
-//gamePlay(computerSelection(),playerSelection());
-//plays a round of rock paper scissor
 
 function game(){
 
     let numOfRounds = window.prompt("Enter the Number of rounds you would like to play");
-
-    let currentRound = 1;
-
-    let computerWins;
-
-    let playerWins;
     
-    while (numOfRounds>=currentRound) {
 
-        if(gamePlay(computerSelection(),playerSelection()) == 1){
-            console.log(`Player has won round ${currentRound}`)
+    if (parseInt(numOfRounds) <= 0 || isNaN(numOfRounds) == true){
+
+        console.log(`${numOfRounds} rounds is not a valid answer. Please enter a number greater than 0`);
+
+        game();
+
+    }
+
+    let computerWins = 0;
+    let playerWins = 0;
+    let currentRound = 0;
+
+    
+    while(currentRound < numOfRounds) {
+    
+        let whoWon = gamePlay(computerSelection(),playerSelection());
+    
+        if( whoWon == 1){
+            console.log(`Player has won round ${currentRound+1}`)
             playerWins++;
-            currentRound++;
+            
             
         }
 
-        if(gamePlay(computerSelection(),playerSelection()) == -1){
-            console.log(`Computer has won round ${currentRound}`)
+        if(whoWon == -1){
+            console.log(`Computer has won round ${currentRound+1}`)
             computerWins++;
-            currentRound++;
             
         }
 
         else{
-            console.log(`Round ${currentRound} is a Tie`);
-            currentRound++
+            console.log(`Round ${currentRound+1} is a Tie`);
+            
         }
+
+        currentRound++;
+
+        
 
     }
 
