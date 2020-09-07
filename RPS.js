@@ -63,37 +63,83 @@ function gamePlay(computerInput,playerInput){
 
     if(playerInput == "rock" && computerInput == "scissor"){
         console.log("You win, rock beats scissor");
+        return 1;
     }
 
     else if(playerInput == "rock" && computerInput == "paper"){
         console.log("You lose, paper beats rock");
+        return -1;
+
     }    
 
     else if(playerInput == "paper" && computerInput == "rock"){
         console.log("You win, paper beats rock");
+        return 1;
     }
 
     else if(playerInput == "paper" && computerInput == "scissor"){
         console.log("You lose, scissor beats paper");
+        return -1;
     }
 
     else if(playerInput == "scissor" && computerInput == "paper"){
         console.log("You win, scissor beats paper");
+        return 1;
     }
 
     else if(playerInput == "scissor" && computerInput == "rock"){
         console.log("You lose, rock beats scissor");
+        return -1;
     }
 
 
     else if(playerInput == computerInput){
         console.log("Tie game");
+        return 0;
     }
     
 }
 
-gamePlay(computerSelection(),playerSelection());
+//this function plays a round of rock paper scissor and displays the result in the console
 
-//playerSelection();
+//gamePlay(computerSelection(),playerSelection());
+//plays a round of rock paper scissor
 
-//console.log(`Computer Chooses ${computerSelection()}`);
+function game(){
+
+    let numOfRounds = window.prompt("Enter the Number of rounds you would like to play");
+
+    let currentRound = 1;
+
+    let computerWins;
+
+    let playerWins;
+    
+    while (numOfRounds>=currentRound) {
+
+        if(gamePlay(computerSelection(),playerSelection()) == 1){
+            console.log(`Player has won round ${currentRound}`)
+            playerWins++;
+            currentRound++;
+            
+        }
+
+        if(gamePlay(computerSelection(),playerSelection()) == -1){
+            console.log(`Computer has won round ${currentRound}`)
+            computerWins++;
+            currentRound++;
+            
+        }
+
+        else{
+            console.log(`Round ${currentRound} is a Tie`);
+            currentRound++
+        }
+
+    }
+
+
+
+}
+
+game();
