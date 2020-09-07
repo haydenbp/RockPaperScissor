@@ -1,4 +1,4 @@
-function computerPlay(){
+function computerSelection(){
 
 let computerRoll = Math.floor(Math.random() * 3) + 1;
 
@@ -24,11 +24,45 @@ let computerRoll = Math.floor(Math.random() * 3) + 1;
     return computerRoll;
 }
 
+function playerSelection(){
 
-let playerChoice = window.prompt("Rock, Paper, or Scissor?");
+    let playerChoice = window.prompt("Rock, Paper, or Scissor?");
 
-console.log(`Player Chose ${playerChoice}`);
+    let validAnswerString = ["rock","paper","scissor"];
 
-console.log(`Computer Chooses ${computerPlay()}`);
+   
+
+    if(validAnswerString.includes(playerChoice.toLowerCase())){
+
+        console.log(`Player Chose ${playerChoice}`);
+
+
+    }
+       
+        
+
+    else{
+
+        console.log("Invalid Input, please enter Rock,Paper,or Scissor");
+
+        playerSelection();
+    }
+
+    
+
+
+
+
+
+
+
+    
+
+}
+
+playerSelection();
+
+console.log(`Computer Chooses ${computerSelection()}`);
+
 
 
