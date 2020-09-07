@@ -1,10 +1,10 @@
 function computerSelection(){
 
-let computerChoice = Math.floor(Math.random() * 3) + 1;
+let computerRandom = Math.floor(Math.random() * 3) + 1;
 
-    
+    let computerChoice;
 
-    switch (computerChoice) {
+    switch (computerRandom) {
         case 1:
             computerChoice = "Rock"
         break;
@@ -38,8 +38,6 @@ function playerSelection(){
         console.log(`Player Chose ${playerChoice}`);
 
         return playerChoice;
-
-
     }
        
 
@@ -56,41 +54,46 @@ function playerSelection(){
 
 function gamePlay(computerInput,playerInput){
 
-    if(playerInput == "Rock" && computerInput == "Scissor"){
-        return console.log("You win, rock beats scissor");
+    console.log(`Computer Chooses ${computerInput}`);
+
+    computerInput = computerInput.toLowerCase();
+    
+    playerInput = playerInput.toLowerCase();
+
+
+    if(playerInput == "rock" && computerInput == "scissor"){
+        console.log("You win, rock beats scissor");
     }
 
-    if(playerInput == "Rock" && computerInput == "Paper"){
-        return console.log("You lose, paper beats rock");
+    if(playerInput == "rock" && computerInput == "paper"){
+        console.log("You lose, paper beats rock");
+    }    
 
-    if(playerInput == "Paper" && computerInput == "Rock"){
-        return console.log("You win, paper beats rock");
+    if(playerInput == "paper" && computerInput == "rock"){
+        console.log("You win, paper beats rock");
     }
 
-    if(playerInput == "Paper" && computerInput == "Scissor"){
-        return console.log("You lose, scissor beats paper");
+    if(playerInput == "paper" && computerInput == "scissor"){
+        console.log("You lose, scissor beats paper");
     }
 
-    if(playerInput == "Scissor" && computerInput == "Paper"){
-        return console.log("You win, scissor beats paper");
+    if(playerInput == "scissor" && computerInput == "paper"){
+        console.log("You win, scissor beats paper");
     }
 
-    if(playerInput == "Scissor" && computerInput == "Rock"){
-        return console.log("You lose, rock beats scissor");
+    if(playerInput == "scissor" && computerInput == "rock"){
+        console.log("You lose, rock beats scissor");
     }
 
 
     if(playerInput == computerInput){
-        return console.log("Tie game");
+        console.log("Tie game");
     }
     
-
-
 }
 
-playerSelection();
+gamePlay(computerSelection(),playerSelection());
 
-console.log(`Computer Chooses ${computerSelection()}`);
+//playerSelection();
 
-
-
+//console.log(`Computer Chooses ${computerSelection()}`);
