@@ -65,28 +65,28 @@ function gamePlay(computerInput,playerInput){
         console.log("You win, rock beats scissor");
     }
 
-    if(playerInput == "rock" && computerInput == "paper"){
+    else if(playerInput == "rock" && computerInput == "paper"){
         console.log("You lose, paper beats rock");
     }    
 
-    if(playerInput == "paper" && computerInput == "rock"){
+    else if(playerInput == "paper" && computerInput == "rock"){
         console.log("You win, paper beats rock");
     }
 
-    if(playerInput == "paper" && computerInput == "scissor"){
+    else if(playerInput == "paper" && computerInput == "scissor"){
         console.log("You lose, scissor beats paper");
     }
 
-    if(playerInput == "scissor" && computerInput == "paper"){
+    else if(playerInput == "scissor" && computerInput == "paper"){
         console.log("You win, scissor beats paper");
     }
 
-    if(playerInput == "scissor" && computerInput == "rock"){
+    else if(playerInput == "scissor" && computerInput == "rock"){
         console.log("You lose, rock beats scissor");
     }
 
 
-    if(playerInput == computerInput){
+    else if(playerInput == computerInput){
         console.log("Tie game");
     }
     
