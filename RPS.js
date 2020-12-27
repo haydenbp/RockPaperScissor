@@ -1,32 +1,47 @@
+let computerWins = 0;
+let playerWins = 0;
+let numberOfRounds = 0;
+
+const playCount = document.querySelector('div')
+
+playCount.textContent = `Players Wins: ${playerWins} \nComputer Wins: ${computerWins}\n Number of Rounds: ${numberOfRounds}  `
+
+
+
 function computerSelection(){
 
-let computerRandom = Math.floor(Math.random() * 3) + 1;
-
-    let computerChoice;
-
-    switch (computerRandom) {
-        case 1:
-            computerChoice = "Rock"
-        break;
-
-        case 2:
-            computerChoice = "Paper"
-
-        break;
-        
-        case 3:
-            computerChoice = "Scissor"
-
-        break;
-
-    }
+    let computerRandom = Math.floor(Math.random() * 3) + 1;
     
-    return computerChoice;
+        let computerChoice;
+    
+        switch (computerRandom) {
+            case 1:
+                computerChoice = "Rock"
+            break;
+    
+            case 2:
+                computerChoice = "Paper"
+    
+            break;
+            
+            case 3:
+                computerChoice = "Scissor"
+    
+            break;
+    
+        }
+        
+        return computerChoice;
 }
+
+   
+   
+
+    
 // Randomly generates a rock paper or scissor choice for the computer
 
 
-function playerSelection(){
+/*function playerSelection(){
 
     let playerChoice = window.prompt("Rock, Paper, or Scissor?");
 
@@ -48,7 +63,7 @@ function playerSelection(){
         playerSelection();
     }
 
-}
+}*/
 // allows the user to input their choice for the round. verifies that input is a valid choice.
 
 
@@ -63,98 +78,133 @@ function gamePlay(computerInput,playerInput){
 
     if(playerInput == "rock" && computerInput == "scissor"){
         console.log("You win, rock beats scissor");
+        playerWins++
+        numberOfRounds++
         return 1;
     }
 
     else if(playerInput == "rock" && computerInput == "paper"){
         console.log("You lose, paper beats rock");
+        computerWins++
+        numberOfRounds++
         return -1;
 
     }    
 
     else if(playerInput == "paper" && computerInput == "rock"){
         console.log("You win, paper beats rock");
+        playerWins++
+        numberOfRounds++
         return 1;
     }
 
     else if(playerInput == "paper" && computerInput == "scissor"){
         console.log("You lose, scissor beats paper");
+        computerWins++
+        numberOfRounds++
         return -1;
     }
 
     else if(playerInput == "scissor" && computerInput == "paper"){
         console.log("You win, scissor beats paper");
+        playerWins++
+        numberOfRounds++
         return 1;
     }
 
     else if(playerInput == "scissor" && computerInput == "rock"){
         console.log("You lose, rock beats scissor");
+        computerWins++
+        numberOfRounds++
         return -1;
     }
 
 
     else if(playerInput == computerInput){
         console.log("Tie Round");
+        numberOfRounds++
+        return 0
         
     }
     
 }
 
+
+
+playerSelection = () =>{
+
+    console.log('reee');
+
+    let playerChoice = 0;
+
+    const buttons = document.querySelectorAll('button');
+
+
+        buttons.forEach(button =>{
+
+            button.addEventListener('click', e => {
+
+
+                playerChoice = `${button.textContent}`
+
+                console.log(typeof playerChoice);
+
+                console.log(numberOfRounds)
+
+                gamePlay(computerSelection(),playerChoice);
+
+                playCount.textContent = `Players Wins: ${playerWins} \nComputer Wins: ${computerWins}\n Number of Rounds: ${numberOfRounds}  `
+                
+                if(numberOfRounds === 5) {
+
+                    console.log('REEEEE')
+                    console.log(playerWins,computerWins)
+
+
+                    if(computerWins > playerWins){
+                        console.log(`The Computer is the winner`);
+
+                        alert(`The Computer is the winner`);
+                
+                    }
+                
+                    if(computerWins < playerWins){
+                        console.log(`You won!`);
+                        alert(`You won!`);
+                    }
+                
+                    if(computerWins == playerWins){
+                        console.log(`Tie Game`);
+                        alert(`Tie Game`)
+                
+                    }
+                
+                
+                
+                }
+
+
+                
+
+
+            });
+      
+        });  
+        
+
+} ;
+
 //this function plays a round of rock paper scissor and displays the result in the console
 
 
-function game(){
 
-    let numOfRounds = window.prompt("Enter the Number of rounds you would like to play");
 
-    if (parseInt(numOfRounds) <= 0 || isNaN(numOfRounds) == true){
+        
 
-        console.log(`${numOfRounds} rounds is not a valid answer. Please enter a number greater than 0`);
-        game();
-    }
 
-    let computerWins = 0;
-    let playerWins = 0;
-    let currentRound = 0;
-
-    while(currentRound < numOfRounds) {
-    
-        let whoWon = gamePlay(computerSelection(),playerSelection());
-    
-        if( whoWon == 1){
-            console.log(`Player has won round ${currentRound+1}`)
-            playerWins++;
-        }
-
-        if(whoWon == -1){
-            console.log(`Computer has won round ${currentRound+1}`)
-            computerWins++;   
-        }
-
-        else{
-            console.log(`Round ${currentRound+1} is a Tie`);   
-        }
-
-        currentRound++;
-    }
-
-    if(computerWins > playerWins){
-        console.log(`The Computer is the winner`);
-
-    }
-
-    if(computerWins < playerWins){
-        console.log(`You won!`);
-
-    }
-
-    if(computerWins == playerWins){
-        console.log(`Tie Game`);
-
-    }
+playerSelection();
 
 
 
-}
 
-game();
+//game();
