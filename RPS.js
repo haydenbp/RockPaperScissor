@@ -155,7 +155,7 @@ playerSelection = () =>{
 
                 playCount.textContent = `Players Wins: ${playerWins} \nComputer Wins: ${computerWins}\n Number of Rounds: ${numberOfRounds}  `
                 
-                if(numberOfRounds === 5) {
+                if(numberOfRounds %5 === 0) {
 
                     console.log('REEEEE')
                     console.log(playerWins,computerWins)
